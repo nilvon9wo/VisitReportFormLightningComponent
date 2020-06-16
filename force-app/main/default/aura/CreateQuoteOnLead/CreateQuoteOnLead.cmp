@@ -1,0 +1,21 @@
+<aura:component implements="lightning:actionOverride,flexipage:availableForAllPageTypes,force:lightningQuickActionWithoutHeader,flexipage:availableForRecordHome,force:hasRecordId" access="global" controller="CreateQuoteOnLead">
+	<aura:attribute name="quote" type="Quote" default="{'sobjectType' : 'Quote' , 
+                                                       'Name' : ''}" />
+    
+      <div class="slds-m-around--xx-large">
+          <div class="slds-form--stacked">
+          <div class="slds-form--element">
+              <div class="slds-form-element_control">
+                  <ui:inputText aura:id="quoteName" label="Name" value="{!v.quote.Name}" />
+              </div>
+              </div>
+           
+          <div class="slds-m-around--medium">
+              
+              
+              <lightning:button variant="brand" label="Create Quote"  onclick="{!c.createQuote}" />  
+                
+            </div>
+        </div>  
+       </div>
+</aura:component>

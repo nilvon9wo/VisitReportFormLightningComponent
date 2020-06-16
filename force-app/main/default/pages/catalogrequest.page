@@ -1,0 +1,137 @@
+<apex:page standardController="Catalog_Request__c" showHeader="false" extensions="ControllerCatalogRequestPDF"  applyHtmlTag="false" applyBodyTag="false" docType="html-5.0" >
+    <html>
+    <head>    
+        <meta charset="utf-8" />
+    <style type="text/css" media="print">
+        .logo-box {
+            float:center;
+            width:40px;
+            margin-right:0px;
+            text-align:right;
+        }
+        div.header {
+                position: running(header);
+        background-image: url(src="{!$Resource.logoGS}", width="40px");
+             }
+    </style>
+    </head>
+ 
+        
+    <body>
+        <!--<apex:pageBlock ><apex:pageMessages /></apex:pageBlock>-->
+        <!--<b> <apex:outputText > {!status} </apex:outputText> </b> <br/> <br/> <br/>-->
+        <!--<div ><apex:image url="{!$Resource.Logo}"/></div>-->
+        <div class="header"/>
+            <img src="{!URLFOR($Resource.logoGS)}" style="height:100px;"/>
+
+             
+       
+      <br/>
+       <span style="font-size:18px; font-weight:italic;">
+       Delivery Address: <br/></span>
+        <div style="border:1px solid #000000; padding:10px;"> 
+        <div><span style="font-size:14px; font-weight:bold;">
+    {!Catalog_Request__c.Contact__r.FirstName} {!Catalog_Request__c.Contact__r.LastName}</span>
+        </div>
+        <div><span style="font-size:14px; font-weight:bold;">
+   Contact Number: {!Catalog_Request__c.Requested_By_Internal__r.Phone}</span>
+        </div>
+        <br/>
+        <div><span style="font-size:14px; font-weight:bold;">
+        <br/>
+    <apex:outputfield value="{!Catalog_Request__c.Delivery_Address__c}" /></span>
+        </div>
+        </div>
+        <br/>
+        <div>
+            Catalog Type: {!Catalog_Request__c.Catalog_Type__c}
+        </div>
+        
+        <div>
+            Compliment Slip: {!Catalog_Request__c.Compliment_Slip__c}
+        </div>
+        
+        
+        <div>
+            Catalog Language: {!Catalog_Request__c.Language__c}
+        </div>
+        <br/>
+        <div>
+            Quantity: {!Catalog_Request__c.Quantity__c}
+        </div>
+        
+        <div>
+            Request Date:
+            <apex:outputText value="{0,date,dd/MM/yyyy}">
+                <apex:param value="{!Catalog_Request__c.Request_Date__c}" /> 
+            </apex:outputText>
+        </div>
+        
+        <div>
+            Request By: {!Catalog_Request__c.Requested_By_Internal__r.FirstName} {!Catalog_Request__c.Requested_By_Internal__r.LastName}
+        </div>
+        
+        <div>
+            Sample Request:<br/>
+            <apex:outputfield value="{!Catalog_Request__c.Sample_Request__c}" /><br/>
+            
+                <apex:dataTable value="{!lineItems}" var="lineItem" id="theTable" width="100%">
+                    <apex:facet name="caption">Line Items</apex:facet>
+            
+                    <apex:column headerValue="Product" headerClass="header">
+                        <apex:outputText value="{!lineItem.Product__r.ProductCode}"/>
+                    </apex:column>
+                    
+                 <apex:column headerValue="Quantity" headerClass="header">
+                         <apex:outputText value="{!lineItem.Quantity__c}"/>
+                    </apex:column>                    
+            
+                    <apex:column headerValue="Description" headerClass="header">
+                         <apex:outputText value="{!lineItem.Product_Description__c}"/>
+                    </apex:column>
+            
+                </apex:dataTable>
+            
+        </div>
+        
+        
+        <br/>
+        <br/>
+        <br/>
+        
+                <br/>
+        <div>
+            Name: {!Catalog_Request__c.Name}
+        </div>
+        
+        <div>
+            Account: {!Catalog_Request__c.Account__r.Name}
+        </div>
+        
+        <div>
+            Contact: {!Catalog_Request__c.Contact__r.FirstName} {!Catalog_Request__c.Contact__r.LastName}
+        </div>
+        <div>
+            Contact Phone: {!Catalog_Request__c.Requested_By_Internal__r.Phone}
+        </div>
+        <div>
+            Customer Address:<br/>
+            <apex:outputfield value="{!Catalog_Request__c.Customer_Address__c}" />
+        </div>
+    
+    </body>
+        <br/>
+        <br/>
+        <br/>
+       <apex:form >
+        <apex:commandButton action="{!savePDF}" value="Save" style="background:LightBlue;width:150px;" oncomplete="javascript:window.top.location.href='/{!Catalog_Request__c.Id}'" />
+        <script>
+            window.onload=function() {
+                savePDF();
+            };
+        </script>
+
+    </apex:form>
+    </html>
+    
+</apex:page>

@@ -1,0 +1,35 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" >
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="newRecord" type="Catalog_Request__c"    default="{ 'sobjectType': 'Catalog_Request__c',
+                                                                        'Contact__c':'',
+                                                                        'Account__c':'',
+                                                                        'Catalog_Type__c':'',
+                                                                        'Quantity__c':'',
+                                                                        'Language__c':'',
+                                                                           'Add_Paperwork__c':'',
+                                                                           'Compliment_Slip__c':'',
+                                                                         'Ship_by_FedEx__c':'',
+                                                                           'Send_Under_Plain_cover__c':'',
+                                                                           'Delivery_Address__c':'',
+                                                                           'Additional_Information__c':''}"/>
+    
+    <lightning:recordEditForm aura:id="myform" objectApiName="Catalog_Request__c" onsubmit="{!c.handleSubmit}">
+<lightning:messages />
+        
+        <lightning:outputField fieldName="Contact__c" aura:id="contact"/>
+        <lightning:inputField fieldName="Account__c" aura:id="account"/>
+        <lightning:inputField fieldName="Catalog_Type__c" aura:id="ct"/>
+        <lightning:inputField fieldName="Quantity__c" aura:id="quantity"/>
+        <lightning:inputField fieldName="Language__c" aura:id="language"/>
+        <lightning:inputField fieldName="Add_Paperwork__c" aura:id="addP"/>
+        <lightning:inputField fieldName="Compliment_Slip__c" aura:id="cs"/>
+        <lightning:inputField fieldName="Ship_by_FedEx__c" aura:id="sbf"/>
+        <lightning:inputField fieldName="Send_Under_Plain_cover__c" aura:id="supc"/>
+         <lightning:inputField fieldName="Delivery_Address__c" aura:id="da"/>
+         <lightning:inputField fieldName="Additional_Information__c" aura:id="ai"/>
+        
+        <lightning:button class="slds-button slds-button--brand" onclick="{!c.gotoURL}">Next </lightning:button>
+        
+        </lightning:recordEditForm>
+	
+</aura:component>

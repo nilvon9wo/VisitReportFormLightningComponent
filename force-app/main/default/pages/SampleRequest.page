@@ -1,0 +1,76 @@
+<apex:page standardController="Contact" extensions="ControllerSampleRequestPDF"  applyHtmlTag="true" applyBodyTag="false" docType="html-5.0" lightningStylesheets="true" >
+    <html>
+    <head>    
+        <apex:slds />
+        <meta charset="utf-8" />
+
+    </head>
+ 
+        
+    <body>       
+ <apex:form >
+        <table>
+    <thead>
+        <tr>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Contact :</td>
+            <td>{!Contact.FirstName} {!Contact.LastName}</td>
+            <td>Account :</td>
+            <td>
+                <apex:inputField value="{!Contact.Sample_Line_Item__r.Account__c}"/> 
+            </td>
+        </tr>
+        <br/>
+       
+        
+        <tr>
+            <td>Product :</td>
+            <td><apex:inputField value="{!Contact.Sample_Line_Item__r.Product__c}"/> </td>
+            <td>Quantity :</td>
+            <td>
+                <apex:inputField value="{!Contact.Sample_Line_Item__r.Quantity__c}"/> 
+            </td>
+        </tr>
+        <br/>
+        <tr colspan="2"> 
+         <td >Product Description :</td>
+        <td>
+                <apex:inputField value="{!Contact.Sample_Line_Item__r.Product_Description__c}"/> 
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Add Paperwork : </td>
+            <td><apex:inputField value="{!Contact.Sample_Line_Item__r.Add_Paperwork__c}"/> </td>
+            <td>Compliment slip  :</td>
+            <td><apex:inputField value="{!Contact.Sample_Line_Item__r.Compliment_Slip__c}"/> </td>
+       	</tr>
+         <tr>
+            <td> FedEx : </td>
+            <td><apex:inputField value="{!Contact.Sample_Line_Item__r.FedEx__c}"/> </td>
+        </tr>
+        <tr>
+            <td>Delivery Address  :</td>
+            <td><apex:inputField value="{!Contact.Sample_Line_Item__r.Delivery_Address__c}"/> </td>
+       	</tr>
+    </tbody>
+</table>
+        
+       <apex:commandButton value="Save" action="{!Save}"/>
+
+
+    </apex:form>     
+        
+        
+        
+        
+        
+        
+        
+    </body>
+    </html>
+</apex:page>

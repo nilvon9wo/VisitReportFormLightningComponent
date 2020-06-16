@@ -1,0 +1,38 @@
+<aura:component controller="Lightning_PicklistLookup" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	<aura:attribute name="listSource" type="String" required="true" default="picklist"/> <!--Query is other option -->
+    <!-- picklist -->
+    <aura:attribute name="objectName" type="String" />
+  	<aura:attribute name="fieldName" type="String" />
+    <aura:attribute name="disabled" type="Boolean" default="false"/>
+    <!-- query -->
+	<aura:attribute name="fieldName1" type="String" />
+    <aura:attribute name="fieldName2" type="String" />
+    <aura:attribute name="whereClause" type="String" />
+    <aura:attribute name="limit" type="String" />    
+    <aura:attribute name="variant" type="String" default="label-inline"/>
+    <aura:attribute name="required" type="Boolean" default="false"/>
+    <aura:attribute name="label" type="String" />
+    <aura:attribute name="options" type="List" default="[]"/>
+    <aura:attribute name="addedOptions" type="List" default="[]"/>
+    <aura:attribute name="value" type="String"/>
+    <aura:attribute name="uniqueName" type="String" required="true" default="name"/>
+    <aura:attribute name="showError" type="Boolean" default="false"/>
+    <aura:handler name="change" value="{!v.showError}" action="{!c.handleValidationView}"/>    
+    <aura:registerEvent name="selectEvent" type="c:ListBoxEvent"/>
+    
+    
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    
+    <lightning:select disabled="{!v.disabled}" aura:id="selectOption" name="Select Options" variant="{!v.variant}" label="{!v.label}"  onchange="{! c.handleChange }" required="{!v.required}">
+        <aura:iteration items="{!v.options}" var="option">
+            <aura:if isTrue="{!option.value == v.value}">
+                <option text="{!option.label}" value="{!option.value}" selected="true"/>
+                <aura:set attribute="else">
+                <option text="{!option.label}" value="{!option.value}"/>
+                </aura:set>
+            </aura:if>
+        </aura:iteration>       
+    </lightning:select>
+    
+    
+</aura:component>

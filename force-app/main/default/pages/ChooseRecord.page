@@ -1,0 +1,105 @@
+<apex:page extensions="CaseForm" standardController="Case" lightningStyleSheets="true">
+    
+     <apex:slds />
+   <script>
+function showToast() {
+            sforce.one.showToast({
+                "title": "Success!",
+                "message": "Your request has been submitted , someone will get back to you",
+                "type": "success"
+            });
+        }
+</script>
+    <html>
+       
+   
+    <head>
+        
+   
+     <style type="text/css">
+            
+            @page{  
+                margin-top:0.18in; 
+                margin-right:0.35in; 
+                margin-left:0.25in;
+            }
+
+            div.header {
+                padding: 10px;
+                display: block;
+            } 
+             body {
+                
+                margin: 1px !important;
+                padding: 10px !important;
+                border: 1px solid #1B5297 !important;
+                border-bottom-color: #1B5297 !important;
+                
+                font-weight: bold ;
+                font-size: .9em;
+                -moz-border-radius: 3px;
+                -webkit-border-radius: 3px;
+                border-radius: 3px;
+              	text-align: center;
+
+            }
+       
+    </style>
+         </head>
+    <body >
+        
+   <div class="slds">
+   
+     <apex:form id="theForm" styleClass="slds-form" > 
+
+        <apex:pageBlock >
+            
+            <apex:messages />
+            
+                  <apex:pageBlockSection title="Submit your request" collapsible="false" columns="2" >
+                <apex:pageblocksectionitem >
+               <apex:outputpanel >
+                     <table width="100%" border="0" height="200px" >
+                    <tr>
+                        <td>  Status:</td>
+                                <td>
+                                    <apex:inputField style="width:300px;" value="{!case.status}" />
+                                </td>
+                            </tr> 
+                     <tr>
+                                <td>Priority:</td>
+                                <td>
+                                    <apex:inputField style="width:300px;" value="{!case.priority}"/>
+                                </td>
+                            </tr>
+                         <tr>
+                                <td>subject:</td>
+                                <td>
+                                    <apex:inputField style="width:300px;" value="{!case.subject}"/>
+                                </td>
+                            </tr>
+                         <tr>
+                                <td>Description:</td>
+                                <td>
+                                    <apex:inputField style="width:300px;" value="{!case.description}"/>
+                                    
+
+                                </td>
+                            </tr>
+                   </table>
+                    </apex:outputpanel>
+                      </apex:pageblocksectionitem>
+            </apex:pageBlockSection>
+          
+        </apex:pageBlock>
+       
+                 <apex:commandButton value="Save" action="{!save}" rerender="theForm" styleClass="slds-button slds-button--brand slds-not-selected" onclick="showToast();"  >
+                     
+         </apex:commandButton>
+         <apex:commandButton value="Cancel" action="{!cancel}" id="cancelButton" styleClass="slds-button slds-button--brand slds-not-selected" />
+          
+    </apex:form>
+        </div>
+     </body>
+     </html>
+</apex:page>

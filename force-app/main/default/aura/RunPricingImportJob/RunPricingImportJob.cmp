@@ -1,0 +1,13 @@
+<aura:component controller="Lightning_RunPricingImportJob"
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	
+    <aura:attribute name="recordId" type="String" />
+    
+    <div class="c-container slds-p-around_medium">
+            	<lightning:spinner aura:id="spinner" alternativeText="Loading" size="medium" class="slds-hide"/>
+                <div class="controls slds-m-around_medium slds-align_absolute-center">
+                    <lightning:button variant="brand" label="Run Job" title="Run Job" onclick="{!c.run}"/>   
+                </div>
+        </div>   
+    
+</aura:component>
