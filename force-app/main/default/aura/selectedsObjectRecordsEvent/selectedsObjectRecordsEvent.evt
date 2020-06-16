@@ -1,0 +1,6 @@
+<!--
+ - Created by Brian on 2020-06-16.
+ -->
+
+<aura:event type="COMPONENT" description="selectedsObjectRecordsEvent">
+</aura:event>
