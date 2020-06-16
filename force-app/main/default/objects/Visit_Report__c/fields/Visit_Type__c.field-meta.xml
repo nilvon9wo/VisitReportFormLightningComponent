@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Visit_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Visit Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Administrative Physicals</fullName>
+                <default>false</default>
+                <label>Administrative Physicals</label>
+            </value>
+            <value>
+                <fullName>Follow Up/Chronic Care Visit</fullName>
+                <default>false</default>
+                <label>Follow Up/Chronic Care Visit</label>
+            </value>
+            <value>
+                <fullName>Physical/Check Up (Well Man or Well Woman Exam)</fullName>
+                <default>false</default>
+                <label>Physical/Check Up (Well Man or Well Woman Exam)</label>
+            </value>
+            <value>
+                <fullName>Urgent/New Symptom Visit</fullName>
+                <default>false</default>
+                <label>Urgent/New Symptom Visit</label>
+            </value>
+            <value>
+                <fullName>Well Child Exam</fullName>
+                <default>false</default>
+                <label>Well Child Exam</label>
+            </value>
+            <value>
+                <fullName>“Welcome to Medicare” and Annual Medicare Wellness Visit</fullName>
+                <default>false</default>
+                <label>“Welcome to Medicare” and Annual Medicare Wellness Visit</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
