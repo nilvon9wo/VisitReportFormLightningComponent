@@ -1,5 +1,12 @@
 public inherited sharing class VisitReportFormAuraCtrl {
-    private VisitReportFormAuraCtrl(){
+    private XAP_DAO_TRANS_MultiDmlOperationProcessor multiDmlOperationProcessor;
+
+    private VisitReportFormAuraCtrl(XAP_DAO_TRANS_MultiDmlOperationProcessor multiDmlOperationProcessor) {
+        this.multiDmlOperationProcessor = multiDmlOperationProcessor;
+    }
+
+    private VisitReportFormAuraCtrl() {
+        this(XAP_DAO_TRANS_MultiDmlOperationProcessor.getInstance());
     }
 
     private static VisitReportFormAuraCtrl instance;
@@ -21,6 +28,10 @@ public inherited sharing class VisitReportFormAuraCtrl {
     }
 
     private Visit_Report__c save(Visit_Report__c visitReport, List<Contact> contactList, List<User> userList) {
-        return null;
+        this.multiDmlOperationProcessor.process(new List<XAP_DAO_TRANS_DmlOperationIntf>{
+                new VisitReportInserter(visitReport),
+                new VisitReportRelationInserter(contactList, userList)
+        });
+        return visitReport;
     }
 }
