@@ -1,54 +1,30 @@
-<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" >
-  <!-- Create attribute to store lookup value as a sObject--> 
-  
-
-   
-<aura:attribute name="selectedLookUpRecords" type="sObject[]" default="[]" />
-    <aura:attribute name="selectedLookUpRecords1" type="sObject[]" default="[]" />
-    
-
-    <aura:attribute name="newRecord" type="Visit_Report__c"    default="{ 'sobjectType': 'Visit_Report__c',
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction">
+    <aura:attribute name="selectedContacts" type="sObject[]" default="[]"/>
+    <aura:attribute name="selectedUsers" type="sObject[]" default="[]"/>
+    <aura:attribute name="newRecord" type="Visit_Report__c" default="{ 'sobjectType': 'Visit_Report__c',
                                                                         'Visit_Type__c':'',
                                                                         'Contact__c':'',
                                                                         'Assigned_to__c':'',
                                                                         'Account__c':'',
                                                                         'Comments__c':''}"/>
-   
- <lightning:recordEditForm aura:id="myform" objectApiName="Visit_Report__c" onsubmit="{!handleSubmit}" > 
-<lightning:messages />
 
-    
-    <lightning:inputField fieldName="Visit_Type__c" aura:id="type"/>
-   <!-- <lightning:inputField fieldName="Contact__c" aura:id="contact"/> 
-    
-    <lightning:inputField fieldName="User__c" aura:id="user"/> -->
+    <aura:registerEvent name="selectedsObjectRecordsEvent" type="c:selectedsObjectRecordsEvent"/>
 
- <c:reUsableMultiSelectLookup objectAPIName="Contact"
-                               IconName="standard:contact"
-                               lstSelectedRecords="{!v.selectedLookUpRecords}"
-                               label="Contact Name" aura:id="cont"/>
-  <c:reUsableMultiSelectLookup objectAPIName="User"
-                               IconName="standard:User"
-                               lstSelectedRecords="{!v.selectedLookUpRecords1}"
-                               label="Assigned to" aura:id="user"/> 
-     <lightning:inputField fieldName="Account__c" aura:id="acc"/> 
-  
-
-     
-     
-     
-     
-    <lightning:helptext
-        content="Please feel free capture as much or as little visit information as necessary, e.g.: - Who you met? - Next step actions for marketing or inside sales team? (e.g. quotes? Visuals? Samples Catalogue?  Sales team presentation? Self-promo?  Spec samples for top customers?) - Who are their top customers (i.e. end users / industrial customer)?  -Turnover / pen spend?  Potential?">
-   </lightning:helptext>
-    <lightning:inputField fieldName="Comments__c" aura:id="comm"/>
-    
-   
-   <lightning:button
-                class="slds-m-top_small"
-                type="submit"
-                label="Create new">
-            </lightning:button>
-   <!-- here c: is org. namespace prefix-->
+    <lightning:recordEditForm aura:id="myform" objectApiName="Visit_Report__c" onsubmit="{!c.handleSubmit}">
+        <lightning:messages/>
+        <lightning:inputField fieldName="Visit_Type__c" aura:id="type"/>
+        <c:reUsableMultiSelectLookup objectAPIName="Contact"
+                                     IconName="standard:contact"
+                                     lstSelectedRecords="{!v.selectedContacts}"
+                                     label="Contact Name" aura:id="cont"/>
+        <c:reUsableMultiSelectLookup objectAPIName="User"
+                                     IconName="standard:User"
+                                     lstSelectedRecords="{!v.selectedUsers}"
+                                     label="Assigned to" aura:id="user"/>
+        <lightning:inputField fieldName="Account__c" aura:id="acc"/>
+        <lightning:helptext
+                content="Please feel free capture as much or as little visit information as necessary, e.g.: - Who you met? - Next step actions for marketing or inside sales team? (e.g. quotes? Visuals? Samples Catalogue?  Sales team presentation? Self-promo?  Spec samples for top customers?) - Who are their top customers (i.e. end users / industrial customer)?  -Turnover / pen spend?  Potential?"/>
+        <lightning:inputField fieldName="Comments__c" aura:id="comm"/>
+        <lightning:button class="slds-m-top_small" type="submit" label="Create new" />
     </lightning:recordEditForm>
 </aura:component>
