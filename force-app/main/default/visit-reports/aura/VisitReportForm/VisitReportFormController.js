@@ -2,9 +2,12 @@
     handleSubmit: function (component, event) {
         event.preventDefault();
 
+        const fields = event.getParam('fields');
+        fields.Account__c = component.get('v.recordId');
+
         const action = component.get('c.saveVisitReport');
         action.setParams({
-            visitReport: event.getParam('fields'),
+            visitReport: fields,
             contactList: component.get('v.selectedContacts'),
             userList: component.get('v.selectedUsers')
         });

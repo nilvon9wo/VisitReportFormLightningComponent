@@ -12,7 +12,17 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Subject__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Comments__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Visit_Type__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -20,14 +30,9 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Subject__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Visit_Type__c</field>
+                <field>OwnerId</field>
             </layoutItems>
         </layoutColumns>
-        <layoutColumns/>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
     <layoutSections>

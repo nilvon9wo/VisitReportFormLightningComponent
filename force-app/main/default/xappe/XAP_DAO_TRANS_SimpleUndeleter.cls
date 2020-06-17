@@ -11,4 +11,3 @@ public class XAP_DAO_TRANS_SimpleUndeleter extends XAP_DAO_TRANS_SimpleAbstractD
 		return super.genericDml.doUndelete(sObjectList, operationModeEnum);
 	}
 }
-

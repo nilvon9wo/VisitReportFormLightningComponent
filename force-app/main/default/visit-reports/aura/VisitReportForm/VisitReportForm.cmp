@@ -10,6 +10,7 @@
 
     <lightning:recordEditForm aura:id="visitReportForm" objectApiName="Visit_Report__c" onsubmit="{!c.handleSubmit}">
         <lightning:messages/>
+        <lightning:inputField fieldName="Subject__c" aura:id="comm"/>
         <lightning:inputField fieldName="Visit_Type__c" aura:id="type"/>
         <c:reUsableMultiSelectLookup objectAPIName="Contact"
                                      IconName="standard:contact"
@@ -19,7 +20,6 @@
                                      IconName="standard:User"
                                      lstSelectedRecords="{!v.selectedUsers}"
                                      label="Assigned to" aura:id="user"/>
-        <lightning:inputField fieldName="Account__c" aura:id="acc"/>
         <lightning:helptext
                 content="Please feel free capture as much or as little visit information as necessary, e.g.: - Who you met? - Next step actions for marketing or inside sales team? (e.g. quotes? Visuals? Samples Catalogue?  Sales team presentation? Self-promo?  Spec samples for top customers?) - Who are their top customers (i.e. end users / industrial customer)?  -Turnover / pen spend?  Potential?"/>
         <lightning:inputField fieldName="Comments__c" aura:id="comm"/>
