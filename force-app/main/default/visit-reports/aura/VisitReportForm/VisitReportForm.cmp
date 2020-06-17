@@ -3,10 +3,6 @@
 >
     <aura:attribute name="selectedContacts" type="sObject[]" default="[]"/>
     <aura:attribute name="selectedUsers" type="sObject[]" default="[]"/>
-    <aura:attribute name="newRecord" type="Visit_Report__c" default="{ 'sobjectType': 'Visit_Report__c',
-                                                                        'Visit_Type__c':'',
-                                                                        'Account__c':'',
-                                                                        'Comments__c':''}"/>
 
     <lightning:recordEditForm aura:id="visitReportForm" objectApiName="Visit_Report__c" onsubmit="{!c.handleSubmit}">
         <lightning:messages/>
