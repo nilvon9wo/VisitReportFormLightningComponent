@@ -28,7 +28,7 @@
         fields.Contact__c = component.get('v.selectedContacts')[0].Id;
         fields.User__c = component.get('v.selectedUsers')[0].Id;
 
-        component.find('myform').submit(fields);
+        component.find('visitReportForm').submit(fields);
     }
 
 })

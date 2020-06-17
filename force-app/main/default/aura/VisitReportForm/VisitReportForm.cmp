@@ -8,9 +8,7 @@
                                                                         'Account__c':'',
                                                                         'Comments__c':''}"/>
 
-    <aura:registerEvent name="selectedsObjectRecordsEvent" type="c:selectedsObjectRecordsEvent"/>
-
-    <lightning:recordEditForm aura:id="myform" objectApiName="Visit_Report__c" onsubmit="{!c.handleSubmit}">
+    <lightning:recordEditForm aura:id="visitReportForm" objectApiName="Visit_Report__c" onsubmit="{!c.handleSubmit}">
         <lightning:messages/>
         <lightning:inputField fieldName="Visit_Type__c" aura:id="type"/>
         <c:reUsableMultiSelectLookup objectAPIName="Contact"

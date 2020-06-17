@@ -1,7 +1,8 @@
 {
   "orgName": "Demo company",
   "edition": "Developer",
-  "hasSampleData": false,
+  "language": "en_US",
+  "hasSampleData": true,
   "features": [],
   "settings": {
     "lightningExperienceSettings": {
