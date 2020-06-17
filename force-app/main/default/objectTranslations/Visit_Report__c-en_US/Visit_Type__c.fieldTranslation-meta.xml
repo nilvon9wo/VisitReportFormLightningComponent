@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Visit Type --></label>
+    <name>Visit_Type__c</name>
+    <picklistValues>
+        <masterLabel>Administrative Physicals</masterLabel>
+        <translation><!-- Administrative Physicals --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Follow Up/Chronic Care Visit</masterLabel>
+        <translation><!-- Follow Up/Chronic Care Visit --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Physical/Check Up (Well Man or Well Woman Exam)</masterLabel>
+        <translation><!-- Physical/Check Up (Well Man or Well Woman Exam) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Urgent/New Symptom Visit</masterLabel>
+        <translation><!-- Urgent/New Symptom Visit --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Well Child Exam</masterLabel>
+        <translation><!-- Well Child Exam --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>“Welcome to Medicare” and Annual Medicare Wellness Visit</masterLabel>
+        <translation><!-- “Welcome to Medicare” and Annual Medicare Wellness Visit --></translation>
+    </picklistValues>
+</CustomFieldTranslation>
