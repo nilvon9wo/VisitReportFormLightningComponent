@@ -8,11 +8,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Visit_Report__c.Assigned_to__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Visit_Report__c.Comments__c</field>
         <readable>false</readable>
     </fieldPermissions>
