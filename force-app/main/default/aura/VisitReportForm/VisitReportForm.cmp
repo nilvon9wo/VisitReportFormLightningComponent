@@ -3,8 +3,6 @@
     <aura:attribute name="selectedUsers" type="sObject[]" default="[]"/>
     <aura:attribute name="newRecord" type="Visit_Report__c" default="{ 'sobjectType': 'Visit_Report__c',
                                                                         'Visit_Type__c':'',
-                                                                        'Contact__c':'',
-                                                                        'Assigned_to__c':'',
                                                                         'Account__c':'',
                                                                         'Comments__c':''}"/>
 

@@ -24,9 +24,9 @@
     handleSubmit: function (component, event) {
         event.preventDefault();
 
-        const fields = event.getParam('fields');
-        fields.Contact__c = component.get('v.selectedContacts')[0].Id;
-        fields.User__c = component.get('v.selectedUsers')[0].Id;
+        // const fields = event.getParam('fields');
+        // fields.Contact__c = component.get('v.selectedContacts')[0].Id;
+        // fields.User__c = component.get('v.selectedUsers')[0].Id;
 
         component.find('visitReportForm').submit(fields);
     }
