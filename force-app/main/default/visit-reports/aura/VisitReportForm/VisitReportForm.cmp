@@ -1,4 +1,6 @@
-<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction">
+<aura:component controller="VisitReportFormAuraCtrl"
+        implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction"
+>
     <aura:attribute name="selectedContacts" type="sObject[]" default="[]"/>
     <aura:attribute name="selectedUsers" type="sObject[]" default="[]"/>
     <aura:attribute name="newRecord" type="Visit_Report__c" default="{ 'sobjectType': 'Visit_Report__c',
@@ -21,6 +23,6 @@
         <lightning:helptext
                 content="Please feel free capture as much or as little visit information as necessary, e.g.: - Who you met? - Next step actions for marketing or inside sales team? (e.g. quotes? Visuals? Samples Catalogue?  Sales team presentation? Self-promo?  Spec samples for top customers?) - Who are their top customers (i.e. end users / industrial customer)?  -Turnover / pen spend?  Potential?"/>
         <lightning:inputField fieldName="Comments__c" aura:id="comm"/>
-        <lightning:button class="slds-m-top_small" type="submit" label="Create new" />
+        <lightning:button class="slds-m-top_small" type="submit" label="Create new"  />
     </lightning:recordEditForm>
 </aura:component>

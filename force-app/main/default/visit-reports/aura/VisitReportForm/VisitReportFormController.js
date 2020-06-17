@@ -8,7 +8,7 @@
         saveDetails.setCallback(this, function (response) {
             const state = response.getState();
             if (state === 'SUCCESS') {
-                const firas = component.set('v.recordId', response.getReturnValue());
+                component.set('v.recordId', response.getReturnValue());
                 alert('Record is Created Successfully');
             } else {
                 console.error('Failed with state: ' + state);
@@ -17,18 +17,28 @@
         $A.enqueueAction(saveDetails);
     },
 
-    doInit: function (component) {
-        const getId = component.get('v.recordId');
-    },
-
     handleSubmit: function (component, event) {
         event.preventDefault();
 
-        // const fields = event.getParam('fields');
-        // fields.Contact__c = component.get('v.selectedContacts')[0].Id;
-        // fields.User__c = component.get('v.selectedUsers')[0].Id;
+        const action = component.get('c.saveVisitReport');
+        action.setParams({
+            visitReport: event.getParam('fields'),
+            contactList: component.get('v.selectedContacts'),
+            userList: component.get('v.selectedUsers')
+        });
+        action.setCallback(this, function (response) {
+            if ('SUCCESS' === response.getState()) {
+                alert('From server: ' + response.getReturnValue());
+            } else {
+                const errors = response.getError();
+                const error = errors[0];
+                console.error((error && error.message)
+                    ? `Error message: ${error}`
+                    : 'Unknown error'
+                );
+            }
+        });
 
-        component.find('visitReportForm').submit(fields);
+        $A.enqueueAction(action);
     }
-
 })
